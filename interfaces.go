@@ -1,13 +1,13 @@
-package client
+package types
 
 type ICrud interface {
 	SetID(uint64)
 	SetKey([]byte)
 	GetKey() []byte
 	FromJson([]byte) error
+	FromString(string) error
 	FromGob([]byte) error
-	FromString([]byte) error
-	Json() []byte
-	Gob() []byte
+	Json() ([]byte, error)
+	Gob() ([]byte, error)
 	String() string
 }

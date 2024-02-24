@@ -1,4 +1,4 @@
-package client
+package types
 
 import (
 	"net/http"
@@ -45,20 +45,20 @@ func TestClient_TreeCmd(t *testing.T) {
 					Name: []string{"tree"},
 					Flags: []KV{
 						KV{
-							Key:   "value",
-							Value: "test",
+							K: "value",
+							V: "test",
 						},
 						KV{
-							Key:   "action",
-							Value: "1",
+							K: "action",
+							V: "1",
 						},
 						KV{
-							Key:   "id",
-							Value: "0",
+							K: "id",
+							V: "0",
 						},
 						KV{
-							Key:   "output",
-							Value: "byte",
+							K: "output",
+							V: "byte",
 						},
 					},
 				},

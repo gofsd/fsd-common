@@ -1,4 +1,4 @@
-package client
+package types
 
 // Order -
 type Order struct {
