@@ -77,6 +77,7 @@ func TestClient_TreeCmd(t *testing.T) {
 				t.Errorf("Client.TreeCmd() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
+
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("Client.TreeCmd() = %v, want %v", got, tt.want)
 			}
