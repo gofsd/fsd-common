@@ -51,7 +51,6 @@ func NewClient(host, username, password *string) (*Client, error) {
 	// if err != nil {
 	// 	return nil, err
 	// }
-
 	// c.Token = ar.Token
 
 	return &c, nil
