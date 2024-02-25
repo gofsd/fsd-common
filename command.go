@@ -15,3 +15,10 @@ type Pair struct {
 	K uint16 `json:"i" validate:"min=1,max=65535"`
 	V string `json:"v" validate:"min=1,max=255"`
 }
+
+type Error struct {
+	Error   string   `json:"error,omitempty" validate:"required"`
+	Command *Command `json:"command" validate:"required"`
+}
+
+type Cmd func(Command) (string, error)
