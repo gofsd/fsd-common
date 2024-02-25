@@ -60,6 +60,7 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	req.Header.Set("Authorization", c.Token)
 
 	res, err := c.HTTPClient.Do(req)
+
 	if err != nil {
 		return nil, err
 	}
