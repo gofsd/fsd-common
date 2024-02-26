@@ -22,3 +22,50 @@ type Error struct {
 }
 
 type Cmd func(Command) (string, error)
+
+type CommandResponse struct {
+	Id      uint64 `json:"id"`
+	Command Command
+	Result  any
+}
+
+func (cr *CommandResponse) String() string {
+	return ""
+}
+
+func (cr *CommandResponse) Json() ([]byte, error) {
+	return []byte(""), nil
+}
+
+func (cr *CommandResponse) Gob() ([]byte, error) {
+	return []byte(""), nil
+}
+
+func (cr *CommandResponse) GetValue() any {
+	return cr
+}
+
+func (cr *CommandResponse) Update() error {
+	return nil
+}
+
+func (cr *CommandResponse) GetKey() []byte {
+	return nil
+}
+func (cr *CommandResponse) FromJson(s []byte) error {
+	return nil
+}
+
+func (cr *CommandResponse) FromString(s string) error {
+	return nil
+}
+func (cr *CommandResponse) FromGob(s []byte) error {
+	return nil
+}
+
+func (cr *CommandResponse) SetID(id uint64) {
+	cr.Id = id
+}
+
+func (cr *CommandResponse) SetKey(key []byte) {
+}

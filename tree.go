@@ -7,12 +7,6 @@ import (
 	"strings"
 )
 
-type CommandResponse struct {
-	Id      uint64 `json:"id"`
-	Command Command
-	Result  any
-}
-
 func (c *Client) TreeCmd(cmd Command) (*Pair, error) {
 	rb, err := json.Marshal(cmd)
 	if err != nil {
