@@ -7,6 +7,7 @@ import (
 )
 
 func TestClient_TreeCmd(t *testing.T) {
+
 	type fields struct {
 		HostURL    string
 		HTTPClient *http.Client
