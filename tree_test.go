@@ -22,9 +22,11 @@ func TestClient_TreeCmd(t *testing.T) {
 	var ttt, v = "name", "password"
 
 	c, e := NewClient(&HostURL, &ttt, &v)
+
 	if e != nil {
 		return
 	}
+
 	tests := []struct {
 		name    string
 		fields  fields
