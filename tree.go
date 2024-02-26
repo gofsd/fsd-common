@@ -24,6 +24,7 @@ func (c *Client) TreeCmd(cmd Command) (*Pair, error) {
 	}
 
 	newPair := Pair{}
+
 	err = json.Unmarshal(body, &newPair)
 	if err != nil {
 		return nil, err
