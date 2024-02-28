@@ -12,7 +12,7 @@ type KV struct {
 }
 
 type Pair struct {
-	K uint16 `json:"i" validate:"min=1,max=65535"`
+	K uint64 `json:"k" validate:"min=1,max=18446744073709551615"`
 	V string `json:"v" validate:"min=1,max=255"`
 }
 
@@ -24,9 +24,10 @@ type Error struct {
 type Cmd func(Command) (string, error)
 
 type CommandResponse struct {
-	Id      uint64 `json:"id"`
-	Command Command
-	Result  any
+	Id       uint64 `json:"id"`
+	Command  Command
+	Result   any
+	Duration int64
 }
 
 func (cr *CommandResponse) String() string {
