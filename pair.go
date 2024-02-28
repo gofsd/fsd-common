@@ -1,9 +1,8 @@
 package types
 
 import (
+	"encoding/binary"
 	"encoding/json"
-
-	"github.com/gofsd/fsd/pkg/kv"
 )
 
 type Pair struct {
@@ -73,6 +72,7 @@ func (Pair *Pair) SetValue(v string) {
 }
 
 func (Pair *Pair) GetKey() []byte {
-
-	return kv.GetKeyFromInt(Pair.K)
+	k := make([]byte, 8, 8)
+	binary.BigEndian.PutUint64(k, Pair.K)
+	return k
 }
