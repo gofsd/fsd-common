@@ -66,9 +66,8 @@ func (Pair *Pair) FromSlice(k []byte) (e error) {
 	return
 }
 
-func (Pair *Pair) SetValue(v string) {
-
-	Pair.V = v
+func (Pair *Pair) SetKey(s []byte) {
+	Pair.K = binary.BigEndian.Uint64(s)
 }
 
 func (Pair *Pair) GetKey() []byte {
