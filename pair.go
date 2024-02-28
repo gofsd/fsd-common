@@ -68,6 +68,7 @@ func (Pair *Pair) FromSlice(k []byte) (e error) {
 }
 
 func (Pair *Pair) SetValue(v string) {
+
 	Pair.V = v
 }
 
