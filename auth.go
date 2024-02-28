@@ -40,6 +40,7 @@ func (c *Client) SignIn() (*AuthResponse, error) {
 // SignOut - Revoke the token for a user
 func (c *Client) SignOut() error {
 	req, err := http.NewRequest("POST", fmt.Sprintf("%s/signout", c.HostURL), strings.NewReader(string("")))
+
 	if err != nil {
 		return err
 	}
