@@ -11,11 +11,6 @@ type KV struct {
 	V string `json:"value" validate:"omitempty,min=0,max=256"`
 }
 
-type Pair struct {
-	K uint64 `json:"k" validate:"min=1,max=18446744073709551615"`
-	V string `json:"v" validate:"min=1,max=255"`
-}
-
 type Error struct {
 	Error   string   `json:"error,omitempty" validate:"required"`
 	Command *Command `json:"command" validate:"required"`
