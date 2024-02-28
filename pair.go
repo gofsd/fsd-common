@@ -73,5 +73,6 @@ func (Pair *Pair) SetValue(v string) {
 }
 
 func (Pair *Pair) GetKey() []byte {
+
 	return kv.GetKeyFromInt(Pair.K)
 }
