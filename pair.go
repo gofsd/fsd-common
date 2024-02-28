@@ -1,6 +1,10 @@
 package types
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/gofsd/fsd/pkg/kv"
+)
 
 type Pair struct {
 	K uint64 `json:"k" validate:"min=1,max=18446744073709551615"`
@@ -27,9 +31,6 @@ func (pair *Pair) Update() error {
 	return nil
 }
 
-func (pair *Pair) GetKey() []byte {
-	return nil
-}
 func (pair *Pair) FromJson(s []byte) error {
 	return json.Unmarshal(s, *pair)
 }
@@ -45,5 +46,31 @@ func (pair *Pair) SetID(id uint64) {
 	pair.K = id
 }
 
-func (pair *Pair) SetKey(key []byte) {
+func (Pair *Pair) ToPretifiedJson() (b []byte, e error) {
+	b, e = json.MarshalIndent(Pair.V, "", "  ")
+
+	return b, e
+}
+
+func (Pair *Pair) ToJson() (b []byte, e error) {
+	b, e = json.Marshal(Pair)
+	return b, e
+}
+
+func (Pair *Pair) JustUpdate() error {
+	return nil
+}
+
+func (Pair *Pair) FromSlice(k []byte) (e error) {
+	e = json.Unmarshal(k, Pair.V)
+
+	return
+}
+
+func (Pair *Pair) SetValue(v string) {
+	Pair.V = v
+}
+
+func (Pair *Pair) GetKey() []byte {
+	return kv.GetKeyFromInt(Pair.K)
 }
