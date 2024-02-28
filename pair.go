@@ -35,6 +35,7 @@ func (pair *Pair) FromJson(s []byte) error {
 }
 
 func (pair *Pair) FromString(s string) error {
+	pair.V = s
 	return nil
 }
 func (pair *Pair) FromGob(s []byte) error {
