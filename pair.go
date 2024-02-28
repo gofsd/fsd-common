@@ -77,7 +77,7 @@ func (Pair *Pair) GetKey() []byte {
 	return k
 }
 
-func (Pair *Pair) Test() []byte {
+func (Pair *Pair) Testifyfi() []byte {
 	k := make([]byte, 8, 8)
 	binary.BigEndian.PutUint64(k, Pair.K)
 	return k
