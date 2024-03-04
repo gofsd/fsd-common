@@ -17,4 +17,5 @@ var (
 	FSD_FOLDER              = ".fsd"
 	FSD_FULL_FOLDER_NAME    = filepath.Join(HOME, FSD_FOLDER)
 	DBFullName, LogFullName = filepath.Join(FSD_FULL_FOLDER_NAME, DBName), filepath.Join(FSD_FULL_FOLDER_NAME, LogName)
+	Output                  = STRING
 )
