@@ -16,5 +16,5 @@ var (
 	HOME                    = os.Getenv("HOME")
 	FSD_FOLDER              = ".fsd"
 	FSD_FULL_FOLDER_NAME    = filepath.Join(HOME, FSD_FOLDER)
-	DBFullPath, LogFullPath = filepath.Join(FSD_FULL_FOLDER_NAME, DBName), filepath.Join(FSD_FULL_FOLDER_NAME, LogName)
+	DBFullName, LogFullName = filepath.Join(FSD_FULL_FOLDER_NAME, DBName), filepath.Join(FSD_FULL_FOLDER_NAME, LogName)
 )

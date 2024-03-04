@@ -11,3 +11,10 @@ const (
 	SERVER uint8 = iota + 1
 	CLIENT
 )
+
+const (
+	STRING uint8 = iota + 1
+	JSON
+	BYTE
+	GOB
+)
