@@ -19,7 +19,3 @@ var (
 	DBFullName, LogFullName = filepath.Join(FSD_FULL_FOLDER_NAME, DBName), filepath.Join(FSD_FULL_FOLDER_NAME, LogName)
 	Output                  = STRING
 )
-
-var (
-	RequestID, ID uint64
-)
