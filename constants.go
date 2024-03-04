@@ -15,6 +15,6 @@ const (
 const (
 	STRING uint8 = iota + 1
 	JSON
-	BYTE
 	GOB
+	PJSON
 )
