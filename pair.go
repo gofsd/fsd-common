@@ -39,6 +39,7 @@ func (pair *Pair) FromString(s string) error {
 	return nil
 }
 func (pair *Pair) FromGob(s []byte) error {
+
 	return nil
 }
 
