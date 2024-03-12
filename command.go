@@ -21,7 +21,7 @@ type Cmd func(Command) (string, error)
 type CommandResponse struct {
 	Id       uint64 `json:"id"`
 	Command  Command
-	Result   KV
+	Result   any
 	Duration int64
 }
 
