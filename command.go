@@ -7,7 +7,7 @@ type Command struct {
 }
 
 type KV struct {
-	K string `json:"key" validate:"omitempty,min=0,max=9"`
+	K string `json:"key" validate:"omitempty,min=1,max=32"`
 	V string `json:"value" validate:"omitempty,min=0,max=256"`
 }
 
@@ -21,7 +21,7 @@ type Cmd func(Command) (string, error)
 type CommandResponse struct {
 	Id       uint64 `json:"id"`
 	Command  Command
-	Result   any
+	Result   KV
 	Duration int64
 }
 
