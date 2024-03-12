@@ -15,6 +15,7 @@ func (pair *Pair) String() string {
 }
 
 func (pair *Pair) Json() ([]byte, error) {
+
 	return json.Marshal(pair)
 }
 
