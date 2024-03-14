@@ -67,7 +67,7 @@ func (cr *CommandResponse) SetKey(key []byte) {
 }
 
 type CmdOptions struct {
-	ID      uint8
+	ID      uint32
 	Cmd     string
 	Subject string
 	Checks  []Check
