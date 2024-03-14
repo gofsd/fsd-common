@@ -11,3 +11,10 @@ type ICrud interface {
 	Gob() ([]byte, error)
 	String() string
 }
+
+type IJustCrud interface {
+	JustCreate(ICrud) error
+	JustRead(ICrud) error
+	JustUpdate(ICrud) error
+	JustDelete(ICrud) error
+}
