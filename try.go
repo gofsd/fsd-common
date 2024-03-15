@@ -1,12 +1,14 @@
 package types
 
 import (
+	"encoding/binary"
 	"encoding/json"
 )
 
 type TryOptions struct {
 	ID      uint64
 	Cmd     string
+	Destroy string
 	Subject string
 	Checks  []Check
 	Equals  []Equal
@@ -52,8 +54,9 @@ func (try *TryOptions) SetKey(s []byte) {
 }
 
 func (try *TryOptions) GetKey() []byte {
-
-	return []byte("")
+	k := make([]byte, 8, 8)
+	binary.BigEndian.PutUint64(k, try.ID)
+	return k
 }
 
 func (try *TryOptions) FromJson(s []byte) error {
