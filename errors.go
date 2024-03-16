@@ -14,7 +14,7 @@ var ErMap CustomErrors = CustomErrors{}
 
 func (err *CustomErrors) AddError(code uint16, message string) {
 	if len(message) > 30 {
-		panic("Error message can't be longer than 30 symbols")
+		panic(fmt.Sprintf("Error message can't be longer than 30 symbols. Message length is %d", len(message)))
 	}
 	(*err)[code] = message
 }
@@ -28,5 +28,5 @@ func GetError(code uint16, args ...any) error {
 }
 func init() {
 	ErMap.AddError(ENOTEXIST, "File not found")
-	ErMap.AddError(EUNKNOWN, "Unknown error with code: %d and arguments: %#v")
+	ErMap.AddError(EUNKNOWN, "EUNKNOWN code/args: %d and arguments: %#v")
 }
