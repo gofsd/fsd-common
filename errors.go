@@ -28,5 +28,5 @@ func GetError(code uint16, args ...any) error {
 }
 func init() {
 	ErMap.AddError(ENOTEXIST, "File not found")
-	ErMap.AddError(EUNKNOWN, "EUNKNOWN code/args: %d and arguments: %#v")
+	ErMap.AddError(EUNKNOWN, "EUNKNOWN code/args: %d/%#v")
 }
