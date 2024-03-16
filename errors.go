@@ -19,11 +19,11 @@ func (err *CustomErrors) AddError(code uint16, message string) {
 	(*err)[code] = message
 }
 
-func (err *CustomErrors) GetError(code uint16, args ...any) error {
-	if value, ok := (*err)[code]; ok {
+func GetError(code uint16, args ...any) error {
+	if value, ok := ErMap[code]; ok {
 		return fmt.Errorf(value, args...)
 	}
-	value, _ := (*err)[EUNKNOWN]
+	value, _ := ErMap[EUNKNOWN]
 	return fmt.Errorf(value, args)
 }
 func init() {
