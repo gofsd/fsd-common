@@ -6,13 +6,14 @@ import (
 )
 
 type TryOptions struct {
-	ID      uint64
-	Cmd     string
-	Destroy string
-	Subject string
-	Checks  []Check
-	Equals  []Equal
-	Output  string
+	ID       uint64
+	Cmd      string
+	Destroy  string
+	Subject  string
+	Checks   []Check
+	Equals   []Equal
+	Output   string
+	Triggers map[string]string
 }
 
 type Equal struct {
