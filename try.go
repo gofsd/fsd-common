@@ -7,9 +7,9 @@ import (
 
 type TryOptions struct {
 	ID       uint64
-	Cmd      string
+	Apply    string
 	Destroy  string
-	Subject  string
+	Name     string
 	Checks   []Check
 	Equals   []Equal
 	Output   string
