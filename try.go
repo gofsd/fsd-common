@@ -13,7 +13,7 @@ type TryOptions struct {
 	Checks   []Check
 	Equals   []Equal
 	Output   string
-	Triggers map[string]string
+	Triggers map[string]bool
 }
 
 type Equal struct {
