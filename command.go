@@ -2,13 +2,28 @@ package types
 
 type Command struct {
 	Name  []string `json:"name" validate:"required,min=1,max=9,dive,min=2,max=16"`
-	Args  []string `json:"args" validate:"omitempty,min=0,max=9,dive,min=1,max=64"`
-	Flags []KV     `json:"flags" validate:"omitempty,min=0,max=9"`
+	Args  []string `json:"args" validate:"omitempty,min=0,max=9,dive,min=1,max=512"`
+	Flags []KV     `json:"flags" validate:"omitempty,min=1,max=16"`
+}
+
+func (cmd *Command) SetFlag(key, value string) {
+	cmd.Flags = append(cmd.Flags, KV{
+		K: key,
+		V: value,
+	})
+}
+
+func (cmd *Command) SetArg(value string) {
+	cmd.Args = append(cmd.Args, value)
+}
+
+func (cmd *Command) SetName(name string) {
+	cmd.Name = append(cmd.Name, name)
 }
 
 type KV struct {
-	K string `json:"key" validate:"omitempty,min=1,max=32"`
-	V string `json:"value" validate:"omitempty,min=0,max=256"`
+	K string `json:"key" validate:"omitempty,min=1,max=16"`
+	V string `json:"value" validate:"omitempty,min=0,max=32"`
 }
 
 type Error struct {
