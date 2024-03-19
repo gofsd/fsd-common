@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -36,7 +37,7 @@ func NewClient(host, username, password *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
 		// Default Hashicups URL
-		HostURL: HostURL,
+		HostURL: *host,
 		Auth: AuthStruct{
 			Username: *username,
 			Password: *password,
@@ -75,4 +76,29 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	}
 
 	return body, err
+}
+
+// Exec - exec command
+func (c *Client) Exec(cmd, resp ICrud) error {
+	rb, err := cmd.Json()
+	if err != nil {
+		return err
+	}
+
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/exec", c.HostURL), strings.NewReader(string(rb)))
+	if err != nil {
+		return err
+	}
+
+	body, err := c.doRequest(req)
+	if err != nil {
+		return err
+	}
+
+	resp.FromJson(body)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

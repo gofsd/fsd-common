@@ -1,5 +1,7 @@
 package types
 
+import "encoding/json"
+
 type Command struct {
 	Name  []string `json:"name" validate:"required,min=1,max=9,dive,min=2,max=16"`
 	Args  []string `json:"args" validate:"omitempty,min=0,max=9,dive,min=1,max=512"`
@@ -45,7 +47,8 @@ func (cr *CommandResponse) String() string {
 }
 
 func (cr *CommandResponse) Json() ([]byte, error) {
-	return []byte(""), nil
+
+	return json.Marshal(cr)
 }
 
 func (cr *CommandResponse) Gob() ([]byte, error) {
@@ -64,7 +67,7 @@ func (cr *CommandResponse) GetKey() []byte {
 	return nil
 }
 func (cr *CommandResponse) FromJson(s []byte) error {
-	return nil
+	return json.Unmarshal(s, *cr)
 }
 
 func (cr *CommandResponse) FromString(s string) error {
