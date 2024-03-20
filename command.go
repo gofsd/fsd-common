@@ -8,19 +8,23 @@ type Command struct {
 	Flags []KV     `json:"flags" validate:"omitempty,min=1,max=16"`
 }
 
-func (cmd *Command) SetFlag(key, value string) {
+func (cmd *Command) SetFlag(key, value string) *Command {
 	cmd.Flags = append(cmd.Flags, KV{
 		K: key,
 		V: value,
 	})
+	return cmd
 }
 
-func (cmd *Command) SetArg(value string) {
+func (cmd *Command) SetArg(value string) *Command {
 	cmd.Args = append(cmd.Args, value)
+	return cmd
+
 }
 
-func (cmd *Command) SetName(name string) {
+func (cmd *Command) SetName(name string) *Command {
 	cmd.Name = append(cmd.Name, name)
+	return cmd
 }
 
 type KV struct {
