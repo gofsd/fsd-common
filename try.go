@@ -61,7 +61,7 @@ func (try *TryOptions) GetKey() []byte {
 }
 
 func (try *TryOptions) FromJson(s []byte) error {
-	return json.Unmarshal(s, *try)
+	return json.Unmarshal(s, try)
 }
 
 func (try *TryOptions) FromString(s string) error {

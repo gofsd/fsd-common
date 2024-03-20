@@ -67,7 +67,7 @@ func (cr *CommandResponse) GetKey() []byte {
 	return nil
 }
 func (cr *CommandResponse) FromJson(s []byte) error {
-	return json.Unmarshal(s, *cr)
+	return json.Unmarshal(s, cr)
 }
 
 func (cr *CommandResponse) FromString(s string) error {
@@ -109,7 +109,7 @@ func (cr *Command) GetKey() []byte {
 	return nil
 }
 func (cr *Command) FromJson(s []byte) error {
-	return json.Unmarshal(s, *cr)
+	return json.Unmarshal(s, cr)
 }
 
 func (cr *Command) FromString(s string) error {

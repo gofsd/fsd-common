@@ -25,7 +25,7 @@ func (Pair *Pair) GetKey() []byte {
 }
 
 func (pair *Pair) FromJson(s []byte) error {
-	return json.Unmarshal(s, *pair)
+	return json.Unmarshal(s, pair)
 }
 
 func (pair *Pair) FromString(s string) error {
