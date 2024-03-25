@@ -10,7 +10,10 @@ var (
 )
 
 type Default struct {
-	ID uint64 `json:"id"`
+	ID     uint64 `json:"id"`
+	CMD    Command
+	Output string `json:"output" validate:"max=512"`
+	Error  Error
 }
 
 func (try *Default) SetID(id uint64) {

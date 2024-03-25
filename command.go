@@ -33,7 +33,8 @@ type KV struct {
 }
 
 type Error struct {
-	Error   string   `json:"error,omitempty" validate:"required"`
+	Code    uint16
+	Message string   `json:"error,omitempty" validate:"required"`
 	Command *Command `json:"command" validate:"required"`
 }
 
