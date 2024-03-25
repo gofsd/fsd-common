@@ -38,6 +38,12 @@ type Error struct {
 	Command *Command `json:"command" validate:"required"`
 }
 
+func (e *Error) Error() string {
+	var data []byte
+	json.Unmarshal(data, e)
+	return string(data)
+}
+
 type Cmd func(Command) (string, error)
 
 type CommandResponse struct {
