@@ -22,6 +22,11 @@ func (cmd *Command) SetArg(value string) *Command {
 
 }
 
+func (cmd *Command) SetArgs(args []string) *Command {
+	cmd.Args = args
+	return cmd
+}
+
 func (cmd *Command) SetName(name string) *Command {
 	cmd.Name = append(cmd.Name, name)
 	return cmd
