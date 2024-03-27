@@ -1,6 +1,6 @@
 package types
 
-var _ IRootFlags = RootFlags{}
+var _ IRootFlags = &RootFlags{}
 
 type RootFlags struct {
 	Action, Output           uint8
@@ -8,49 +8,62 @@ type RootFlags struct {
 	LogByRequestID           uint64
 }
 
-func (rf RootFlags) GetAction() uint8 {
-	return rf.Action
+func (rf RootFlags) GetUint8(key string) uint8 {
+	if key == "action" {
+		return rf.Action
+	} else if key == "output" {
+		return rf.Output
+	}
+	return 0
 }
 
-func (rf RootFlags) GetOutput() uint8 {
-	return rf.Action
-}
-func (rf RootFlags) GetUserID() uint32 {
-	return rf.EntityID
-}
-
-func (rf RootFlags) GetEntityID() uint32 {
-	return rf.EntityID
-}
-
-func (rf RootFlags) GetLogByID() uint64 {
-	return rf.LogByRequestID
+func (rf RootFlags) GetUint32(key string) uint32 {
+	if key == "test" {
+		return rf.TestID
+	} else if key == "user" {
+		return rf.UserID
+	} else if key == "entity-id" {
+		return rf.EntityID
+	}
+	return 0
 }
 
-func (rf RootFlags) GetTestID() uint32 {
-	return rf.TestID
+func (rf RootFlags) GetUint64(key string) uint64 {
+	if key == "log" {
+		return rf.LogByRequestID
+	}
+	return 0
 }
 
-func (rf *RootFlags) SetAction(action uint8) {
-	rf.Action = action
+func (rf *RootFlags) SetUint8(key string, value uint8) (res uint8) {
+	if key == "action" {
+		rf.Action = value
+		return rf.Action
+	} else if key == "output" {
+		rf.Output = value
+		return rf.Output
+	}
+	return res
 }
 
-func (rf *RootFlags) SetOutput(output uint8) {
-	rf.Output = output
-}
-func (rf *RootFlags) SetUserID(userID uint32) {
-	rf.UserID = userID
+func (rf *RootFlags) SetUint32(key string, value uint32) (res uint32) {
+	if key == "test" {
+		rf.TestID = value
+		return rf.TestID
+	} else if key == "user" {
+		rf.UserID = value
+		return rf.UserID
+	} else if key == "entity-id" {
+		rf.EntityID = value
+		return rf.EntityID
+	}
+	return res
 }
 
-func (rf *RootFlags) SetEntityID(entityID uint32) {
-	rf.EntityID = entityID
-}
-
-func (rf *RootFlags) SetLogRequestID(logRequestID uint64) {
-	rf.LogByRequestID = logRequestID
-}
-
-func (rf *RootFlags) SetTestID(testID uint32) {
-
-	rf.TestID = testID
+func (rf *RootFlags) SetUint64(key string, value uint64) (res uint64) {
+	if key == "log" {
+		rf.LogByRequestID = value
+		return rf.LogByRequestID
+	}
+	return res
 }

@@ -20,16 +20,10 @@ type IJustCrud interface {
 }
 
 type IRootFlags interface {
-	GetAction() uint8
-	GetEntityID() uint32
-	GetOutput() uint8
-	GetUserID() uint32
-	GetTestID() uint32
-	GetLogByID() uint64
-	SetAction(uint8)
-	SetEntityID(uint32)
-	SetOutput(uint8)
-	SetUserID(uint32)
-	SetTestID(uint32)
-	SetLogRequestID(uint64)
+	GetUint8(string) uint8
+	GetUint32(string) uint32
+	GetUint64(string) uint64
+	SetUint8(string, uint8) uint8
+	SetUint32(string, uint32) uint32
+	SetUint64(string, uint64) uint64
 }
