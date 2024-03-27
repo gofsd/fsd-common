@@ -1,12 +1,7 @@
 package types
 
-import (
-	"encoding/binary"
-	"encoding/json"
-)
-
 type TryOptions struct {
-	ID       uint64
+	Default
 	Apply    string
 	Destroy  string
 	Name     string
@@ -44,43 +39,4 @@ func (cmd *TryOptions) SetEqual(statements, gots, wants []string) {
 			Want:      wants[i],
 		})
 	}
-}
-
-func (try *TryOptions) SetID(id uint64) {
-	try.ID = id
-}
-
-func (try *TryOptions) SetKey(s []byte) {
-
-}
-
-func (try *TryOptions) GetKey() []byte {
-	k := make([]byte, 8, 8)
-	binary.BigEndian.PutUint64(k, try.ID)
-	return k
-}
-
-func (try *TryOptions) FromJson(s []byte) error {
-	return json.Unmarshal(s, try)
-}
-
-func (try *TryOptions) FromString(s string) error {
-	return nil
-}
-
-func (try *TryOptions) FromGob(s []byte) error {
-	return nil
-}
-
-func (try *TryOptions) Json() ([]byte, error) {
-
-	return json.Marshal(try)
-}
-
-func (try *TryOptions) Gob() ([]byte, error) {
-	return []byte(""), nil
-}
-
-func (try *TryOptions) String() string {
-	return ""
 }

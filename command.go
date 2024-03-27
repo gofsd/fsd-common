@@ -57,7 +57,7 @@ func (e *Error) Error() string {
 type Cmd func(Command) (string, error)
 
 type CommandResponse struct {
-	Id       uint64 `json:"id"`
+	Default
 	Command  Command
 	Result   any
 	Duration int64
@@ -91,7 +91,7 @@ func (cr *CommandResponse) FromGob(s []byte) error {
 }
 
 func (cr *CommandResponse) SetID(id uint64) {
-	cr.Id = id
+	cr.ID.ID = id
 }
 
 func (cr *CommandResponse) SetKey(key []byte) {
