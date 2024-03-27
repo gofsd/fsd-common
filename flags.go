@@ -8,62 +8,24 @@ type RootFlags struct {
 	LogByRequestID           uint64
 }
 
-func (rf RootFlags) GetUint8(key string) uint8 {
+func (rf *RootFlags) GetUint8(key string) *uint8 {
 	if key == "action" {
-		return rf.Action
-	} else if key == "output" {
-		return rf.Output
+		return &rf.Action
+	} else {
+		return &rf.Output
 	}
-	return 0
 }
 
-func (rf RootFlags) GetUint32(key string) uint32 {
+func (rf *RootFlags) GetUint32(key string) *uint32 {
 	if key == "test" {
-		return rf.TestID
+		return &rf.TestID
 	} else if key == "user" {
-		return rf.UserID
-	} else if key == "entity-id" {
-		return rf.EntityID
+		return &rf.UserID
+	} else {
+		return &rf.EntityID
 	}
-	return 0
 }
 
-func (rf RootFlags) GetUint64(key string) uint64 {
-	if key == "log" {
-		return rf.LogByRequestID
-	}
-	return 0
-}
-
-func (rf *RootFlags) SetUint8(key string, value uint8) (res uint8) {
-	if key == "action" {
-		rf.Action = value
-		return rf.Action
-	} else if key == "output" {
-		rf.Output = value
-		return rf.Output
-	}
-	return res
-}
-
-func (rf *RootFlags) SetUint32(key string, value uint32) (res uint32) {
-	if key == "test" {
-		rf.TestID = value
-		return rf.TestID
-	} else if key == "user" {
-		rf.UserID = value
-		return rf.UserID
-	} else if key == "entity-id" {
-		rf.EntityID = value
-		return rf.EntityID
-	}
-	return res
-}
-
-func (rf *RootFlags) SetUint64(key string, value uint64) (res uint64) {
-	if key == "log" {
-		rf.LogByRequestID = value
-		return rf.LogByRequestID
-	}
-	return res
+func (rf *RootFlags) GetUint64(key string) *uint64 {
+	return &rf.LogByRequestID
 }

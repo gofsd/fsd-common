@@ -23,7 +23,4 @@ type IRootFlags interface {
 	GetUint8(string) uint8
 	GetUint32(string) uint32
 	GetUint64(string) uint64
-	SetUint8(string, uint8) uint8
-	SetUint32(string, uint32) uint32
-	SetUint64(string, uint64) uint64
 }
