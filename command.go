@@ -58,82 +58,8 @@ type Cmd func(Command) (string, error)
 
 type CommandResponse struct {
 	Default
+	ID
 	Command  Command
 	Result   any
 	Duration int64
-}
-
-func (cr *CommandResponse) String() string {
-	return ""
-}
-
-func (cr *CommandResponse) Gob() ([]byte, error) {
-	return []byte(""), nil
-}
-
-func (cr *CommandResponse) GetValue() any {
-	return cr
-}
-
-func (cr *CommandResponse) Update() error {
-	return nil
-}
-
-func (cr *CommandResponse) GetKey() []byte {
-	return nil
-}
-
-func (cr *CommandResponse) FromString(s string) error {
-	return nil
-}
-func (cr *CommandResponse) FromGob(s []byte) error {
-	return nil
-}
-
-func (cr *CommandResponse) SetID(id uint64) {
-	cr.ID.ID = id
-}
-
-func (cr *CommandResponse) SetKey(key []byte) {
-}
-
-func (cr *Command) String() string {
-	return ""
-}
-
-func (cr *Command) Json() ([]byte, error) {
-
-	return json.Marshal(cr)
-}
-
-func (cr *Command) Gob() ([]byte, error) {
-	return []byte(""), nil
-}
-
-func (cr *Command) GetValue() any {
-	return cr
-}
-
-func (cr *Command) Update() error {
-	return nil
-}
-
-func (cr *Command) GetKey() []byte {
-	return nil
-}
-func (cr *Command) FromJson(s []byte) error {
-	return json.Unmarshal(s, cr)
-}
-
-func (cr *Command) FromString(s string) error {
-	return nil
-}
-func (cr *Command) FromGob(s []byte) error {
-	return nil
-}
-
-func (cr *Command) SetID(id uint64) {
-}
-
-func (cr *Command) SetKey(key []byte) {
 }
