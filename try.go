@@ -2,6 +2,7 @@ package types
 
 type TryOptions struct {
 	Default
+	RootFlags
 	Apply    string
 	Destroy  string
 	Name     string
