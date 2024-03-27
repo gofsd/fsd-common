@@ -20,7 +20,7 @@ type IJustCrud interface {
 }
 
 type IRootFlags interface {
-	GetUint8(string) uint8
-	GetUint32(string) uint32
-	GetUint64(string) uint64
+	GetUint8(string) *uint8
+	GetUint32(string) *uint32
+	GetUint64(string) *uint64
 }
