@@ -31,25 +31,25 @@ func (rf RootFlags) GetTestID() uint32 {
 	return rf.TestID
 }
 
-func (rf RootFlags) SetAction(action uint8) {
+func (rf *RootFlags) SetAction(action uint8) {
 	rf.Action = action
 }
 
-func (rf RootFlags) SetOutput(output uint8) {
+func (rf *RootFlags) SetOutput(output uint8) {
 	rf.Output = output
 }
-func (rf RootFlags) SetUserID(userID uint32) {
+func (rf *RootFlags) SetUserID(userID uint32) {
 	rf.UserID = userID
 }
 
-func (rf RootFlags) SetEntityID(entityID uint32) {
+func (rf *RootFlags) SetEntityID(entityID uint32) {
 	rf.EntityID = entityID
 }
 
-func (rf RootFlags) SetLogRequestID(logRequestID uint64) {
+func (rf *RootFlags) SetLogRequestID(logRequestID uint64) {
 	rf.LogByRequestID = logRequestID
 }
 
-func (rf RootFlags) SetTestID(testID uint32) {
+func (rf *RootFlags) SetTestID(testID uint32) {
 	rf.TestID = testID
 }
