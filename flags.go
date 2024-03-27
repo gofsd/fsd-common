@@ -51,5 +51,6 @@ func (rf *RootFlags) SetLogRequestID(logRequestID uint64) {
 }
 
 func (rf *RootFlags) SetTestID(testID uint32) {
+
 	rf.TestID = testID
 }
