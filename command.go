@@ -8,6 +8,17 @@ type Command struct {
 	Flags []KV     `json:"flags" validate:"omitempty,min=1,max=16"`
 }
 
+type Error struct {
+	Default
+	Code    uint16
+	Message string   `json:"error,omitempty" validate:"required"`
+	Command *Command `json:"command" validate:"required"`
+}
+
+type Testing struct {
+	Default
+}
+
 func (cmd *Command) SetFlag(key, value string) *Command {
 	cmd.Flags = append(cmd.Flags, KV{
 		K: key,
@@ -37,12 +48,6 @@ type KV struct {
 	V string `json:"value" validate:"omitempty,min=0,max=32"`
 }
 
-type Error struct {
-	Code    uint16
-	Message string   `json:"error,omitempty" validate:"required"`
-	Command *Command `json:"command" validate:"required"`
-}
-
 func (e *Error) Error() string {
 	var data []byte
 	json.Unmarshal(data, e)
@@ -62,11 +67,6 @@ func (cr *CommandResponse) String() string {
 	return ""
 }
 
-func (cr *CommandResponse) Json() ([]byte, error) {
-
-	return json.Marshal(cr)
-}
-
 func (cr *CommandResponse) Gob() ([]byte, error) {
 	return []byte(""), nil
 }
@@ -81,9 +81,6 @@ func (cr *CommandResponse) Update() error {
 
 func (cr *CommandResponse) GetKey() []byte {
 	return nil
-}
-func (cr *CommandResponse) FromJson(s []byte) error {
-	return json.Unmarshal(s, cr)
 }
 
 func (cr *CommandResponse) FromString(s string) error {

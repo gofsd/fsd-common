@@ -80,12 +80,13 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 
 // Exec - exec command
 func (c *Client) Exec(cmd, resp ICrud) error {
-	rb, err := cmd.Json()
+	var requestBody string
+	err := Json(cmd, &requestBody)
 	if err != nil {
 		return err
 	}
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/exec", c.HostURL), strings.NewReader(string(rb)))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/exec", c.HostURL), strings.NewReader(requestBody))
 	if err != nil {
 		return err
 	}
@@ -95,7 +96,7 @@ func (c *Client) Exec(cmd, resp ICrud) error {
 		return err
 	}
 
-	resp.FromJson(body)
+	err = FromJson(&body, resp)
 	if err != nil {
 		return err
 	}

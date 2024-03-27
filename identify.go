@@ -3,5 +3,5 @@ package types
 import "sync/atomic"
 
 var (
-	TotalRequestID, RequestID, ID atomic.Uint64
+	TotalRequestID, RequestID atomic.Uint64
 )
