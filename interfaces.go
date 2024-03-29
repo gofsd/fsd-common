@@ -18,9 +18,3 @@ type IJustCrud interface {
 	JustUpdate(ICrud) error
 	JustDelete(ICrud) error
 }
-
-type IRootFlags interface {
-	GetUint8(string) *uint8
-	GetUint32(string) *uint32
-	GetUint64(string) *uint64
-}

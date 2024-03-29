@@ -58,7 +58,7 @@ type Cmd func(Command) (string, error)
 
 type CommandResponse struct {
 	Default
-	ID
+	CommonID
 	Command  Command
 	Result   any
 	Duration int64
