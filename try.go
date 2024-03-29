@@ -1,7 +1,7 @@
 package types
 
 type TryOptions struct {
-	Default
+	Default  `mapstructure:",squash"`
 	Apply    string
 	Destroy  string
 	Name     string
