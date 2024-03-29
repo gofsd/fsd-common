@@ -21,8 +21,8 @@ type Testing struct {
 
 func (cmd *Command) SetFlag(key, value string) *Command {
 	cmd.Flags = append(cmd.Flags, KV{
-		K: key,
-		V: value,
+		Key:   key,
+		Value: value,
 	})
 	return cmd
 }
@@ -44,8 +44,8 @@ func (cmd *Command) SetName(name string) *Command {
 }
 
 type KV struct {
-	K string `json:"key" validate:"omitempty,min=1,max=16"`
-	V string `json:"value" validate:"omitempty,min=0,max=32"`
+	Key   string `json:"k" validate:"omitempty,min=1,max=16"`
+	Value string `json:"v" validate:"omitempty,min=0,max=32"`
 }
 
 func (e *Error) Error() string {

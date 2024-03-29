@@ -51,20 +51,20 @@ func TestClient_TreeCmd(t *testing.T) {
 					Name: []string{"tree"},
 					Flags: []KV{
 						KV{
-							K: "value",
-							V: "test",
+							Key:   "value",
+							Value: "test",
 						},
 						KV{
-							K: "action",
-							V: "1",
+							Key:   "action",
+							Value: "1",
 						},
 						KV{
-							K: "id",
-							V: "0",
+							Key:   "id",
+							Value: "0",
 						},
 						KV{
-							K: "output",
-							V: "byte",
+							Key:   "output",
+							Value: "byte",
 						},
 					},
 				},
