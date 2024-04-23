@@ -1,10 +1,10 @@
 package types
 
 var (
-	_ ICrud = &Default{}
+//_ ICrud = &Default{}
 )
 
 type Default struct {
-	CommonID
-	RootFlags
+	CommonID  `mapstructure:",squash"`
+	RootFlags `mapstructure:",squash"`
 }

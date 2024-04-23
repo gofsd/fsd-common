@@ -79,7 +79,7 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 }
 
 // Exec - exec command
-func (c *Client) Exec(cmd, resp ICrud) error {
+func (c *Client) Exec(cmd, resp Modifier[any, any]) error {
 	var requestBody string
 	err := Json(cmd, &requestBody)
 	if err != nil {

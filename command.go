@@ -8,10 +8,9 @@ type Command struct {
 	Flags []KV     `json:"flags" validate:"omitempty,min=1,max=16"`
 }
 
-type Error struct {
+type AppError struct {
 	Default
-	Code    uint16
-	Message string   `json:"error,omitempty" validate:"required"`
+	ErrorInfo
 	Command *Command `json:"command" validate:"required"`
 }
 
@@ -48,7 +47,7 @@ type KV struct {
 	Value string `json:"v" validate:"omitempty,min=0,max=32"`
 }
 
-func (e *Error) Error() string {
+func (e *ErrorInfo) Error() string {
 	var data []byte
 	json.Unmarshal(data, e)
 	return string(data)
