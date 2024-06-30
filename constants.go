@@ -29,7 +29,7 @@ const (
 
 // Buckets
 const (
-	META_BUCKET uint8 = iota
+	META_BUCKET uint8 = iota + 1
 	OBJECT_BUCKET
 	USER_BUCKET
 	ACTION_BUCKET
